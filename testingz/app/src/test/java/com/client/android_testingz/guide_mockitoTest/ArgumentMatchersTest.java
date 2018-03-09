@@ -56,8 +56,8 @@ public class ArgumentMatchersTest {
         }
 
         AClass mock = mock(AClass.class);
-
-        when(mock.call(eq("a"), anyInt())).thenReturn(true);
+       when(mock.call(eq("a"), anyInt())).thenReturn(true);
+        //when(mock.call(anyString(), anyInt())).thenReturn(true);
     }
 
     //// Custom matchers

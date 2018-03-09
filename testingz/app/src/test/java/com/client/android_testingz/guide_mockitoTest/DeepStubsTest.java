@@ -27,7 +27,6 @@ public class DeepStubsTest {
         We mock = mock(We.class, Mockito.RETURNS_DEEP_STUBS);
 
         when(mock.we().are().so().deep()).thenReturn(true);
-        // mock.we().are().so().deep(); // Fails because it is false as default
         assertTrue(mock.we().are().so().deep()); // test is true
     }
 

@@ -15,7 +15,7 @@ public class SpyTest {
 
     @Test
     public void test(){
-        DecimalFormat decimalFormat = spy(new DecimalFormat());
+        DecimalFormat decimalFormat = spy(new DecimalFormat()); // Pass to spy an instance to spy on
         assertEquals("42", decimalFormat.format(42L));
     }
 
