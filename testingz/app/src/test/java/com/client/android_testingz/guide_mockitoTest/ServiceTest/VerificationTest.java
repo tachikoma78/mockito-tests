@@ -24,6 +24,7 @@ import static org.mockito.Mockito.when;
 /**
  * interactions between collaborators can be checked with verify(),
  * while confirming the observable results of an executed action is done with asserts.
+ * VERIFY = behavioral testing.  checks that a method is called with the right parameters.
  */
 
 public class VerificationTest {
@@ -51,7 +52,7 @@ public class VerificationTest {
     @Test
     public void artificialExampleWithArgumentMatchers(){
         passwordEncoder.encode("a");
-        verify(passwordEncoder).encode(anyString());
+        verify(passwordEncoder).encode(anyString()); // anyString only allow non-null
 
         /*
         // verify the exact number of invocations
@@ -78,13 +79,13 @@ public class VerificationTest {
     @Test
     public void testOnly() {
         passwordEncoder.encode("a");
-        verify(passwordEncoder, only()).encode(anyString());
+        verify(passwordEncoder, only()).encode(anyString()); // given method was the only one invoked.
     }
 
     @Test
     public void testNever() {
         verify(passwordEncoder, never()).encode(anyString());
-    }
+    }  // NO interactions with the mock
 
     @Test
     public void testVerifyNoMoreInteractionsSuccess1() {
@@ -99,6 +100,9 @@ public class VerificationTest {
         verify(passwordEncoder).encode("a");
         verify(passwordEncoder).encode("b");
         verifyNoMoreInteractions(passwordEncoder);
+        // at no interactions happened on given mocks beyond the previously verified interactions.
+        // This let's you check that no other methods where called on this object.
+        // You call it after you have verified the expected method calls.
     }
 
     @Test(expected = NoInteractionsWanted.class)
