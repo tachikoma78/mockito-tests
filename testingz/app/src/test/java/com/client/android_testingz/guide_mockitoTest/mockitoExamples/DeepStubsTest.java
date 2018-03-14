@@ -1,4 +1,4 @@
-package com.client.android_testingz.guide_mockitoTest;
+package com.client.android_testingz.guide_mockitoTest.mockitoExamples;
 
 import org.junit.Test;
 import org.mockito.Mockito;
