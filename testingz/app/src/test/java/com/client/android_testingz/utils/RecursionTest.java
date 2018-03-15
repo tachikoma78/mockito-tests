@@ -93,4 +93,9 @@ public class RecursionTest {
         assertEquals(0 , Recursion.sumOfDigit(minimumLimit));
     }
 
+    @Test
+    public void failingTest(){
+        assertNotEquals(0 , Recursion.sumOfDigit(15));
+    }
+
 }

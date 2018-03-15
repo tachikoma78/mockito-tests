@@ -78,10 +78,8 @@ public class PhoneBookServiceTest {
     }
 
     @Test
-    public void givenEmptyPhoneNumber_whenRegister_thenFail(){
-        given(phoneBookRepository.contains(contactName)).willReturn(false);
-
-        phoneBookService.register(contactName, "");
+    public void givenEmptyPhone_whenRegister_thenFail(){
+        phoneBookService.register(contactName, ""); //
 
         then(phoneBookRepository).should(never()).insert(contactName, contactPhoneNumber);
     }
